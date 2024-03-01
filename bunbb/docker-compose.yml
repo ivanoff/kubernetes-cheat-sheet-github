@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  bunbb_api2:
+    image: docker.site/bunbb:latest
+    restart: unless-stopped
+    ports:
+      - 3000:3000

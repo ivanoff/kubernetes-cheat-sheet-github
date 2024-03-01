@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  registry:
+    image: registry:2
+    restart: always
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+      REGISTRY_HTTP_HOST: https://docker.site
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth
+    volumes:
+      - ./auth:/auth
+      - ./data:/data
